@@ -354,12 +354,12 @@
 
 \LoadClass[\ppgcc@papersize,\ppgcc@ptsize]{memoir}
 
-\def\ppgcc@outermargin{2.5cm}
+\def\ppgcc@outermargin{2.0cm}
 \def\ppgcc@innermargin{3.0cm}
 \def\ppgcc@topmargin{2.0cm}
 \def\ppgcc@bottommargin{2.0cm}
-\def\ppgcc@toptextmargin{3.5cm}
-\def\ppgcc@bottomtextmargin{3.0cm}
+\def\ppgcc@toptextmargin{3.0cm}
+\def\ppgcc@bottomtextmargin{2.0cm}
 \def\ppgcc@headerheight{1.5cm}
 \def\ppgcc@footerheight{1.0cm}
 
@@ -784,7 +784,9 @@
 \def\mainmatter{
   \clearpage
   \setcounter{ppgcc@fc@frontpages}{\c@page}%
-  \addtocounter{ppgcc@fc@frontpages}{-1}%
+
+  % Não entendi o motivo de subtrair 1 do contador page. Comando comentado pois o número da página da Introdução estava errado (-1 do que deveria ser).
+  %\addtocounter{ppgcc@fc@frontpages}{-1}%
   \immediate\write\@auxout{%
     \string\setcounter{ppgcc@fc@frontpages}{\the\c@ppgcc@fc@frontpages}^^J
   }%
@@ -1140,6 +1142,11 @@
   \copypagestyle{bibliography}{headings}
   \makeoddhead{bibliography}{\textsc{\bibname}}{}{\thepage}
   \makeevenhead{bibliography}{\thepage}{}{\textsc{\bibname}}
+  
+  % para que a primeira página de cada capítulo tenha paginação no alto à direita
+  \copypagestyle{chapter}{plain}
+  \makeoddhead{chapter}{}{}{}
+  \makeoddfoot{chapter}{}{}{}
 \else
   \makeheadrule{headings}{\textwidth}{0pt}
   \makeoddhead{headings}{\textsc{\leftmark}}{}{\thepage}
@@ -1152,6 +1159,11 @@
 
   \copypagestyle{bibliography}{headings}
   \makeoddhead{bibliography}{\textsc{\bibname}}{}{\thepage}
+  
+  % para que a primeira página de cada capítulo tenha paginação no alto à direita
+  \copypagestyle{chapter}{plain}
+  \makeoddhead{chapter}{}{}{}
+  \makeoddfoot{chapter}{}{}{}
 \fi
 
 \def\ppgcc@chaptermark#1{%
@@ -1254,13 +1266,18 @@
 
 \newcommand{\ppgccufmg}[1]{%
   \setkeys{ppgcc}{#1}
-
+  
   \pagestyle{plain}
-
-  \frontmatter
-
+  
+  % Alterado para contar as páginas de forma continua em todo o documento e, para que os numeros de página apareçam sempre como arábicos.
+  \frontmatter*
+  
   % Falsa folha de rosto
   \makecoverpage
+  % As duas linhas foram acrescentadas para que a capa não conte na numeração das páginas
+  \cleardoublepage
+  \setcounter{page}{1}
+  
   % Folha(s) de rosto
   \maketitlepage
   % Ficha Catalográfica
@@ -1275,21 +1292,27 @@
   \makeepigraph
   % Resumo, Abstract, etc.
   \ppgcc@includeabstractlist
-
+  
   % Sumário e lista de figuras e de tabelas
   \listoffigures
   \listoftables
   \ppgcc@beforetoc
   \tableofcontents
-
+  
   % ***** ATENÇÃO *****
   %
   % Se precisar incluir outras listas, como a Lista de Algoritmos ou de
   % Símbolos, NÃO ALTERE ESTE ARQUIVO PARA COLOCAR O COMANDO AQUI, senão o
   % documento será gerado com problemas! Veja o exemplo da seção "Para os
   % impacientes", que descreve esse caso.
-
+  
   \ifppgcc@putmainmatter\mainmatter\fi
+  
+  % Atribui o valor do contador ppgcc@fc@frontpages para o contador de páginas (page). Dentro de \mainmatter parece que o valor atual de page é copiado para o novo contador ppgcc@fc@frontpages, e então page é zerado.s
+  \setcounter{page}{\theppgcc@fc@frontpages}
+  
+  % Colocar a enumeração de página no canto superior direito nas páginas que contém o título de um capítulo.
+  \makeoddhead{chapter}{}{}{\thepage}
 }
 
 \def\ppgcc@bibauthorformat{}
@@ -1395,7 +1418,7 @@
 
 \sloppy
 
-\setlength{\parindent}{1cm}
+\setlength{\parindent}{1.25cm}
 
 
 \makechapterstyle{ppgccufmgsf}{%
@@ -1416,11 +1439,18 @@
     \paraheadstyle\sffamily}%
   \expandafter\def\expandafter\subparaheadstyle\expandafter{%
     \subparaheadstyle\sffamily}%
-  \setlength{\beforechapskip}{20mm}%
+  \setlength{\beforechapskip}{0cm}%
   \setlength{\midchapskip}{7mm}%
-  \setlength{\afterchapskip}{15mm}%
+  \setlength{\afterchapskip}{1.5cm}%
 }
 \chapterstyle{ppgccufmgsf}
+
+\setbeforesecskip{1.5cm}
+\setaftersecskip{1.5cm}
+\setbeforesubsecskip{1.5cm}
+\setaftersubsecskip{1.5cm}
+\setbeforesubsubsecskip{1.5cm}
+\setaftersubsubsecskip{1.5cm}
 
 \captionnamefont{\bfseries\small}
 \captiondelim{. }
