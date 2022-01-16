@@ -437,9 +437,7 @@
 
 \newcommand{\ppgcc@formatdate}[1][]{%
   \begingroup
-    \def\ppgcc@templang{#1}%
-    \ifx\ppgcc@templang\empty\let\ppgcc@templang\ppgcc@langgroup\fi
-    \@ifundefined{ppgcc@year}{??}{\csname ppgcc@expanddate@\ppgcc@templang\endcsname}%
+    \@ifundefined{ppgcc@year}{\the\year}{\ppgcc@year}%
   \endgroup
 }
 \def\ppgcc@parsedate#1-#2-#3-#4\relax{%
@@ -481,6 +479,7 @@
   \def\@deflang@course{%
     \@ifundefined{@portuguesecourse}{\@course}{\@portuguesecourse}}
 
+  \def\ppgcc@version{Versão final}
   \def\ppgcc@msc{Mestre}
   \def\ppgcc@phd{Doutor}
   \def\ppgcc@mscdoc{Disserta\c{c}\~{a}o}
@@ -494,10 +493,11 @@
   \def\ppgcc@malecoadvisor{Coorientador}
   \def\ppgcc@neutralcoadvisor{Coorientador(a)}
   \def\ppgcc@docdescription{%
+  	\textbf{\ppgcc@version}
+  	\vspace{3cm}
+  	
     \@documenttype{} apresentad\ppgcc@doctype@gender{} ao Programa de
-    P\'{o}s\discretionary{-}{-}{-}Gradua\c{c}\~{a}o em \@deflang@course{} do
-    Instituto de Ci\^{e}ncias Exatas da \@deflang@university{} como requisito
-    parcial para a obten\c{c}\~{a}o do grau de \@degree{} em \@deflang@course.}
+    P\'{o}s\discretionary{-}{-}{-}Gradua\c{c}\~{a}o em \@deflang@course{} da \@deflang@university{}, como requisito parcial à obten\c{c}\~{a}o do título de \@degree{} em \@deflang@course.}
   \def\ppgcc@acknowledgments{Agradecimentos}
   \def\ppgcc@keywordsname{Palavras-chave}
 
@@ -536,6 +536,7 @@
   \ifx\ppgcc@day\empty\else\ \ppgcc@day,\fi
   \ \ppgcc@year
 }
+
 \def\ppgcc@lang@english{%
   \ppgcc@extraporttitlepagetrue
 
@@ -543,11 +544,12 @@
   \def\@deflang@university{\ppgcc@university}
   \def\@deflang@course{\@course}
 
+  \def\ppgcc@version{Final version}
   \def\ppgcc@msc{Master}
   \def\ppgcc@phd{Doctor}
   \def\ppgcc@mscdoc{Thesis}
   \def\ppgcc@mscdocprop{Thesis proposal}
-  \def\ppgcc@phddoc{Dissertation}
+  \def\ppgcc@phddoc{Thesis}
   \def\ppgcc@phddocproj{Dissertation project}
   \def\ppgcc@femaleadvisor{Advisor}
   \def\ppgcc@maleadvisor{Advisor}
@@ -556,9 +558,11 @@
   \def\ppgcc@malecoadvisor{Co-Advisor}
   \def\ppgcc@neutralcoadvisor{Co-Advisor}
   \def\ppgcc@docdescription{%
-    \@documenttype{} presented to the Graduate Program in \@course{} of the
-    \ppgcc@university{} in partial fulfillment of the requirements for the
-    degree of \@degree{} in \@course.}
+  	\textbf{\ppgcc@version}
+	\vspace{3cm}
+  	
+	\@documenttype{} presented to the Graduate Program in \@course{} of the \ppgcc@university{} in partial fulfillment of the requirements for the degree of \@degree{} in \@course.
+}
   \def\ppgcc@acknowledgments{Acknowledgments}
   \def\ppgcc@keywordsname{Keywords}
 
@@ -601,18 +605,19 @@
   \fi
 }
 
-\def\ppgcc@docdescriptionwidth{0.5\textwidth}
+\def\ppgcc@docdescriptionwidth{\textwidth}
 
 \def\ppgcc@makedocdescription{%
   \begin{minipage}{\ppgcc@docdescriptionwidth}
+	\leftskip=5cm % Somado a 3cm da margem esquerda = 8cm
     \ppgcc@docdescription
   \end{minipage}%
 }
 
 \def\ppgcc@titpag@fmtauthor#1{\large\BreakableUppercase{#1}}
-\def\ppgcc@titpag@fmtadvisor{\large\scshape}
+\def\ppgcc@titpag@fmtadvisor{}
 \let\ppgcc@titpag@fmtcoadvisor\ppgcc@titpag@fmtadvisor
-\def\ppgcc@titpag@fmttitle#1{\Large\bfseries\BreakableUppercase{#1}}
+\def\ppgcc@titpag@fmttitle#1{\textbf{#1}}
 \def\ppgcc@titpag@fmtaddress{\large}
 \def\ppgcc@titpag@fmtdate{\large}
 
@@ -649,30 +654,49 @@
   \begin{ppgcctitlingpageodd}
   \begin{singlespace}
   {\centering
-    \vbox to3\baselineskip{%
-      \ifx#1\z@
-      \else
-        {\ppgcc@titpag@fmtauthor{\@author}\par}%
-        \vfil
-      \fi
-    }
+  	\ifx#1\z@
+  		\MakeUppercase{\textbf{\@deflang@university{}}}
+  		
+  		\textbf{Instituto de Ci\^{e}ncias Exatas}
+  		
+  		\textbf{Programa de P\`{o}s-Gradua\c{c}\~{a}o em Ci\^{e}ncia da Computa\c{c}\~{a}o}
+  		
+  		\setbox0=\vbox{\ppgcc@maketitlepageoptionalpart}%
+  		\edef\ppgcc@textvspace{%
+  			\noexpand\vrule
+  			height4cm
+  			depth\the\dp0
+  			width0pt\noexpand\par}
+  		\ppgcc@textvspace
+  	\else
+  	\fi    
 
-    \vspace{\stretch{1}}
-
-    \setbox0=\vbox{\ppgcc@maketitlepageoptionalpart}%
-    \edef\ppgcc@textvspace{%
-      \noexpand\vrule
-      height\the\ht0
-      depth\the\dp0
-      width0pt\noexpand\par}
-    \ppgcc@textvspace
-
-    \vspace{1.5cm}
+	\@author
+	
+	\ifx#1\z@
+	    \setbox0=\vbox{\ppgcc@maketitlepageoptionalpart}%
+	    \edef\ppgcc@textvspace{%
+	    	\noexpand\vrule
+	    	height4cm
+	    	depth\the\dp0
+	    	width0pt\noexpand\par}
+	    \ppgcc@textvspace
+	\else
+		\setbox0=\vbox{\ppgcc@maketitlepageoptionalpart}%
+		\edef\ppgcc@textvspace{%
+			\noexpand\vrule
+			height7cm
+			depth\the\dp0
+			width0pt\noexpand\par}
+		\ppgcc@textvspace
+	\fi
 
     \if@selfdoc
       \setbox0=\vbox{%
     \fi
-    {\DoubleSpacing\ppgcc@titpag@fmttitle{\@deflang@title}\par}%
+    
+    {\ppgcc@titpag@fmttitle{\@deflang@title}\par}%
+    
     \if@selfdoc
       }%
       \begin{tikzpicture}[overlay,remember picture]
@@ -681,11 +705,18 @@
       \end{tikzpicture}\box0
     \fi
 
-    \vspace{1.5cm}
+	\setbox0=\vbox{\ppgcc@maketitlepageoptionalpart}%
+	\edef\ppgcc@textvspace{%
+		\noexpand\vrule
+		height3cm
+		depth\the\dp0
+		width0pt\noexpand\par}
+	\ppgcc@textvspace
 
     \ifx#1\z@
       \ppgcc@textvspace
     \else
+    		    
       \hspace*{\stretch{1}}%
       \if@selfdoc
         \setbox0=\hbox{%
@@ -715,26 +746,27 @@
       \fi
 
       \vspace{1.5cm}
-
-      {\ppgcc@titpag@fmtadvisor{\ppgcc@advisor: \ppgcc@advisorname}\par}%
-      \ifx\ppgcc@coadvisorname\empty\else
-        {\ppgcc@titpag@fmtcoadvisor{\ppgcc@coadvisor: \ppgcc@coadvisorname}\par}%
+	  
+	  \begin{minipage}{\textwidth}
+	  	\leftskip=5cm
+	  	{\ppgcc@titpag@fmtadvisor{\ppgcc@advisor: \ppgcc@advisorname}\par}%
+	  	\ifx\ppgcc@coadvisorname\empty\else
+	  	{\ppgcc@titpag@fmtcoadvisor{\ppgcc@coadvisor: \ppgcc@coadvisorname}\par}%
+	  \end{minipage}
+      
       \fi
     \fi
 
     \vspace{\stretch{1}}
 
     \vbox to3\baselineskip{%
-      \ifx#1\z@
-      \else
-        \vfil
-        {\ppgcc@titpag@fmtaddress{\@address}\par}%
-        \medskip
-        {\ppgcc@titpag@fmtdate{\ppgcc@formatdate\par}}%
-      \fi
+	    \vfil
+	    {\ppgcc@titpag@fmtaddress{\@address}\par}%
+	    {\ppgcc@titpag@fmtdate{\ppgcc@formatdate\par}}%
     }\par
   }
-  \if@selfdoc\global\let\ppgcc@selfdoc@fg\ppgcc@selfdoc@drawtitlepage\fi
+  \if@selfdoc
+  \global\let\ppgcc@selfdoc@fg\ppgcc@selfdoc@drawtitlepage\fi
   \end{singlespace}
   \end{ppgcctitlingpageodd}
 }
