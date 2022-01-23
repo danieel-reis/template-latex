@@ -1166,6 +1166,7 @@
 
 \newcommand{\makeepigraph}{%
   \ifppgcc@showepigraph
+    \pagestyle{empty}
     \@ifundefined{ppgcc@epigraphtext}{}{%
       \cleardoublepage
       \vspace*{\stretch{1}}
