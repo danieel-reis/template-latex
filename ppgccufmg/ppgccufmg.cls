@@ -1109,12 +1109,15 @@
 }
 
 \newcommand{\includededication}[1]{%
-  \ifppgcc@showdedication
-    \cleardoublepage
-    \vspace*{\stretch{1}}
-    \textit{\input{#1}}
-    \vspace*{\stretch{1}}
-    \clearpage
+  \ifppgcc@showdedication  
+  	\begingroup
+	  \pagestyle{empty}
+	  \cleardoublepage
+	  \leftskip=5cm % Somado a 3cm da margem esquerda = 8cm
+	  \vspace*{\fill}    
+	  \noindent \textit{\input{#1}}
+	  \clearpage
+	\endgroup    
   \fi
 }
 
