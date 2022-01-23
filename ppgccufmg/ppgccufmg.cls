@@ -168,11 +168,14 @@
   {\gdef\ppgcc@fcuniversity{#1}}                           % para a F.C.
 \newcommand*{\cutter}[1]{\gdef\ppgcc@cutter{#1}}           % Código "cutter"
 \newcommand*{\cdu}[1]{\gdef\ppgcc@cdu{#1}}                 % Código CDU
+\newcommand*{\authorfc}[1]{\gdef\ppgcc@authorfc{#1}}                 % Autor(a) da ficha catalográfica
 \newcommand*{\indexkeys}[1]{\gdef\ppgcc@indexkeys{#1}}     % Chaves para indexação
 
 \indexkeys{\ppgccexpandlistoffckeywords{} \ppgccexpandlistoffcpostkeywords}
 
+
 \fcuniversity{\ppgcc@university}
+
 
 \let\ppgcc@origdatecmd=\date
 \renewcommand{\date}[1]{%                                  % Data (aaaa-mm ou aaaa-mm-dd)
@@ -799,7 +802,7 @@
 
 \AtBeginDocument{\ppgccaddilenv{figure}}
 
-\def\ppgcc@fc@width{12.5cm}
+\def\ppgcc@fc@width{14cm}
 
 \def\ppgcc@fc@sep{1em}
 \def\ppgcc@fc@rule{.8pt}
@@ -811,6 +814,8 @@
 \def\ppgcc@fc@colsep{1em}
 
 \newcounter{ppgcc@fc@frontpages}
+\newcounter{bibliographypagesbeg}
+\newcounter{bibliographypagesend}
 
 \let\ppgcc@mainmatter=\mainmatter
 \def\mainmatter{
@@ -851,6 +856,7 @@
     {\authorrev}
   \ppgcc@fc@checkparamwarn{ppgcc@cutter}{o código ``cutter''}{cutter}{\cutter}
   \ppgcc@fc@checkparamwarn{ppgcc@cdu}{o código CDU}{cdu}{\cdu}
+  \ppgcc@fc@checkparamwarn{ppgcc@authorfc}{Texto de autoria da ficha catalográfica}{authorfc}{\authorfc}
 }
 
 \def\ppgcc@titlenobreak{%
@@ -921,34 +927,45 @@
         \\[\ppgcc@fc@bigsep]
       \@ifundefined{ppgcc@cutter}{}{\ppgcc@cutter}%
       & \hspace*{\ppgcc@fc@parindent}%
-        \ppgcc@titlenobreak{} / \@author.\space --- \@address, \ppgcc@year
+        \ppgcc@titlenobreak{} [manuscrito] / \@author.\space --- \ppgcc@year.
         \\[\ppgcc@fc@smallsep]
       & \hspace*{\ppgcc@fc@parindent}%
-        \roman{ppgcc@fc@frontpages}, \arabic{lastpage} f.~%
-        \if@fc@hasil : il.~\fi
-        ; 29cm
+        \roman{ppgcc@fc@frontpages}, \arabic{lastpage} f.
         \\[\ppgcc@fc@bigsep]
+	  & \hspace*{\ppgcc@fc@parindent}%
+	  Orientador(a): \ppgcc@advisorname
+	  \\[\ppgcc@fc@smallsep]
       & \hspace*{\ppgcc@fc@parindent}%
         \ifppgcc@phd
-          Tese (doutorado)
+          Tese (Doutorado)
         \else
           Disserta\c{c}\~{a}o (mestrado)
         \fi
-        --- \ppgcc@fcuniversity
+        --- \ppgcc@fcuniversity, Instituto de Ciências Exatas, Departamento de Ciência da Computação
         \\[\ppgcc@fc@smallsep]
       & \hspace*{\ppgcc@fc@parindent}%
-        Orientador(a): \ppgcc@advisorname
+        Referências: f. \thebibliographypagesbeg-\thebibliographypagesend.;
         \\[\ppgcc@fc@bigsep]
       & \hspace*{\ppgcc@fc@parindent}%
         \ppgcc@indexkeys
     \end{tabular}
     \@ifundefined{ppgcc@cdu}{}{%
       \vspace{\ppgcc@fc@bigsep}\par
-      {\centering
+      {\raggedleft
         CDU \ppgcc@cdu
       \par}%
     }%
   \end{minipage}}%
+
+  \begin{minipage}{\ppgcc@l@fc@width}
+	\@ifundefined{ppgcc@authorfc}{}{%
+		\vspace{\ppgcc@fc@bigsep}\par
+		{\raggedright
+			\ppgcc@authorfc
+			\par}%
+	}%
+  \end{minipage}  
+
   \if@selfdoc
     }\begingroup
       \edef\@ht{\the\ht0}\edef\@dp{\the\dp0}%
@@ -1274,6 +1291,7 @@
 \define@key{ppgcc}{authorrev}{\authorrev{#1}}
 \define@key{ppgcc}{cutter}{\cutter{#1}}
 \define@key{ppgcc}{cdu}{\cdu{#1}}
+\define@key{ppgcc}{authorfc}{\authorfc{#1}}
 \define@key{ppgcc}{indexkeys}{\indexkeys{#1}}
 \define@key{ppgcc}{university}{\university{#1}}
 \define@key{ppgcc}{fcuniversity}{\fcuniversity{#1}}
@@ -1389,16 +1407,27 @@
 
 \newcommand{\ppgccbibliography}[2][]{%
   \setkeys{ufmgbib}{#1}
-
+  
   \cleardoublepage
-  \pagestyle{bibliography}
+  \pagestyle{bibliography}  
   \bibliographystyle{ppgccufmg}
+  
+  \setcounter{bibliographypagesbeg}{\c@page}%
+  \immediate\write\@auxout{%
+  	\string\setcounter{bibliographypagesbeg}{\the\c@bibliographypagesbeg}^^J
+  }%
+  
   \begingroup
     \ppgcc@redefchaptitlefont
     \if@nobreakitems\raggedbottom\interlinepenalty=10000\relax\fi
     \bibliography{#2}
   \endgroup
-
+  
+  \setcounter{bibliographypagesend}{\c@page}%
+  \immediate\write\@auxout{%
+  	\string\setcounter{bibliographypagesend}{\the\c@bibliographypagesend}^^J
+  }%
+  
   \clearpage
   \pagestyle{headings}
   \ppgccrestoremarks
