@@ -1477,8 +1477,8 @@
     \def\Hy@chapapp{attachment}%
   }{%
     \ppgcc@endappendices
-    \immediate\write\@auxout{%
-      \string\@writefile{toc}{\string\ppgcc@toc@recover}}
+%    \immediate\write\@auxout{%
+%      \string\@writefile{toc}{\string\ppgcc@toc@recover}}
   }
 
 \sloppy
