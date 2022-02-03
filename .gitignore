@@ -21,3 +21,7 @@
 *.acn
 *.glsdefs
 *.ist
+
+# Arquivos dos exemplos
+ppgccufmg-exemplos/mirella_v1.44/*
+ppgccufmg-exemplos/vilarneto_v1.60/*
