@@ -18,3 +18,6 @@
 *.fls
 *.run.xml
 *.synctex.gz
+*.acn
+*.glsdefs
+*.ist
