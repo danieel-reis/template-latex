@@ -1,0 +1,165 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Exemplo de utilização da classe ppgccufmg
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[msc, oneside]{ppgccufmg}		% ou [msc] para dissertações
+											% de mestrado. Para propostas ou
+											% projetos, usar [phd,project],
+											% [msc,proposal], etc.
+											
+\usepackage[brazil]{babel}        % se o documento for em português, OU
+%\usepackage[english]{babel}      % se o documento for em inglês
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc} % Fonte utilizada principalmente nos títulos
+\usepackage{type1ec}
+\usepackage{graphicx}
+\usepackage[a4paper,
+	portuguese,
+	bookmarks=true,
+	bookmarksnumbered=true,
+	linktocpage,
+	colorlinks,
+	citecolor=red,
+	urlcolor=blue,
+	linkcolor=blue,
+	filecolor=black,
+]{hyperref}
+\usepackage{natbib}
+\usepackage{lipsum} % Pacote usado para gerar texto que ocupe as páginas do exemplo
+
+\begin{document}
+	% O comando a seguir, \ppgccufmg, provê todas as informações relevantes para a classe ppgccufmg. Por favor, consulte a documentação para a descrição de cada chave.
+	
+	% Um exemplo para documentos em português é apresentado a seguir:
+%	\ppgccufmg{
+%		title={Protocolo para Verificação de Erros em Redes Totalmente Confiáveis},
+%		authorrev={da Camara Neto, Vilar Fiuza},
+%		cutter={A474a},
+%		cdu={519.6*82(043)},
+%		authorfc={Ficha catalográfica elaborada pelo(a) bibliotecário(a) Fulano(a) da Silva CRB nª Região nº 9999},
+%		university={Universidade Federal de Minas Gerais},
+%		course={Ciência da Computação},
+%		address={Belo Horizonte},
+%		date={2022},
+%		keywords={Visão Computacional. Redes. Sabotagens},
+%		advisor=[male]{Adamastor Pompeu Setúbal},
+%		coadvisor=[female]{Maria Teresa Eleonora},
+%		%  approval={img/approvalsheet.eps},
+%		%  approval=[-2.5cm][1]{aprovalsheet},
+%		abstract={Resumo}{resumo},
+%		abstract=[english]{Abstract}{abstract},
+%		abstract={Resumo Estendido}{resumoest},
+%		dedication={dedicatoria},
+%		ack={agradecimentos},
+%		%  ack=[Acknowledgments]{ack},
+%		epigraphtext={A verdade é o contrário da mentira, e a mentira é o oposto da verdade.}{Autor desconhecido},
+%		indexkeys={1. Computação -- Teses. 2. Redes -- Teses. I. Orientador. II. Título.},
+%	}
+	
+	% Um exemplo para documentos em inglês é apresentado a seguir (lembre-se de usar \usepackage[english]{babel}):
+	\ppgccufmg{
+		title={Protocol for Error-Verification inside Totally Error-Free Networks},
+		portuguesetitle={Protocolo para Verificação de Erros em Redes Totalmente Confiáveis},
+		authorrev={da Camara Neto, Vilar Fiuza},
+		cutter={A474a},
+		cdu={519.6*82(043)},
+		authorfc={Ficha catalográfica elaborada pelo(a) bibliotecário(a) Fulano(a) da Silva CRB nª Região nº 9999},
+		university={Federal University of Minas Gerais},
+		portugueseuniversity={Universidade Federal de Minas Gerais},
+		course={Computer Science},
+		portuguesecourse={Ciência da Computação},
+		address={Belo Horizonte},
+		date={2022},
+		keywords={Visão Computacional. Redes. Sabotagens},
+		advisor=[male]{Adamastor Pompeu Setúbal},
+		coadvisor=[female]{Maria Teresa Eleonora},
+%		approval={img/approvalsheet.eps},
+		abstract=[brazil]{Resumo}{resumo},
+		abstract={Abstract}{abstract},
+		dedication={dedicatoria},
+		ack={agradecimentos},
+		epigraphtext={Truth and lie are opposite things.}{Unknown},
+		indexkeys={1. Computação -- Teses. 2. Redes -- Teses. I. Orientador. II. Título.}
+	}
+	
+	\chapter{Introdução}
+	\lipsum[1-2]
+	
+	\section{Motivação}
+	\lipsum[1-2]
+	
+	\subsection{Sub-motivação}
+	\lipsum[2-3]
+	
+	\subsection{Mais uma sub-seção}
+	\lipsum[3-4]
+	
+	\subsubsection{Descendo mais um nível}
+	\lipsum[1-2]
+	
+	\chapter{Desenvolvimento}
+	\lipsum[1-4]
+	
+	\begin{figure}[t]
+		\centering
+		\includegraphics{img/exemplo}
+		\caption{Uma figura de exemplo.}
+		\label{fig:exemplo}
+	\end{figure}
+
+	\lipsum[1]
+
+	\begin{table}[t]
+		\caption{Uma tabela de exemplo.}
+		{\centering
+			\begin{tabular}{lcr} \toprule
+				\emph{Left-aligned} & \emph{Centered} & \emph{Right-aligned} \\ \midrule
+				Lorem ipsum & dolor sit & amet \\
+				consectetur adipisicing & elit, sed do eiusmod & tempor \\
+				incididunt ut & labore et dolore & magna aliqua. \\ \bottomrule
+			\end{tabular}\par
+		}
+	\end{table}
+	
+	\section{Usando referências}
+	
+	Segundo \cite{horn86robot}, todo triângulo equilátero tem os lados iguais. Já segundo \cite{shashua97photometric}, todo quadrado também tem.
+
+	Veja que o pacote \verb|natbib| permite uma série de formas diferentes para fazer referências bibliográficas. O comando padrão, \verb|\cite|, realiza a citação comum vista no parágrafo anterior. Outros comandos permitem, por exemplo, citar somente o autor --- por exemplo, citar o trabalho de	\citeauthor{samaras99coupled} --- ou colocar automaticamente a citação entre	parênteses \citep{hougen93estimation, sato99illumination2, sato99illumination1, sato01stability}.
+	
+	Os comandos usados foram, respectivamente, \verb|\citeauthor| e \verb|\citep|. Veja a documentação do \verb|natbib| na Internet para conhecer	outros comandos e exemplos de uso.
+	
+	Citações aleatórias para fazer com que as referências bibliográficas ocupem	mais de uma página: \cite{bichsel92simple, dror01statistics, guisser92new, dwork2006calibrating, sweeney2002k}.	
+	
+	% Aqui vem a parte da bibliografia: use o comando \ppgccbibliography indicando apenas o nome do arquivo .bib (sem a extensão).
+	\ppgccbibliography{bibfile}
+	
+	% Este comando encapsula o conjunto de apêndices. A sua função é fazer com que a numeração dos apêndices seja feita com letras maiúsculas (A, B, C, etc.) e a palavra "Apêndice" anteceda as entradas no Sumário.
+	\begin{appendices}		
+		% Para cada apêndice, um \chapter
+		\chapter{Um apêndice}
+		\lipsum[1-5]
+		
+		\chapter{Outro apêndice}
+		\lipsum[5-10]
+			
+		% Fim dos apêndices (usar apenas depois do último apêndice)
+	\end{appendices}
+	
+	% Este comando encapsula o conjunto de anexos. A sua função é fazer com que a numeração dos anexos seja feita com letras maiúsculas (A, B, C, etc.) e a palavra "Anexo" anteceda as entradas no Sumário.
+	\begin{attachments}
+		
+		% Para cada anexo, um \chapter
+		\chapter{Um anexo}		
+		\lipsum[1-5]
+		
+		\chapter{Outro anexo}
+		\lipsum[1-2]
+		
+		\chapter{Mais um anexo}
+		\lipsum[1-2]
+		
+		% Fim dos anexos (usar apenas depois do último anexo)
+	\end{attachments}
+	
+\end{document}
