@@ -35,6 +35,15 @@ As alterações realizadas na versão 1.60 por Vilar Neto não contam com docume
   }
   ```
   
+- O gênero do nome do(a) orientador(a) e do(a) co-orientador(a) devem ser explicitamente declarados:
+  ```
+  \ppgccufmg{
+     ...
+     advisor=[male]{Adamastor Pompeu Setúbal},
+     coadvisor=[female]{Maria Teresa Eleonora}
+  }
+  ```
+  
 - As palavras-chave do resumo e _abstract_, segundo as diretrizes, devem ser redigidas com a inicial maiúscula, separadas entre si com ponto final e finalizadas também com ponto final. Exemplo:
 
   Resumo em português:
