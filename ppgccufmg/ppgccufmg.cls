@@ -755,9 +755,8 @@
 	  	{\ppgcc@titpag@fmtadvisor{\ppgcc@advisor: \ppgcc@advisorname}\par}%
 	  	\ifx\ppgcc@coadvisorname\empty\else
 	  	{\ppgcc@titpag@fmtcoadvisor{\ppgcc@coadvisor: \ppgcc@coadvisorname}\par}%
+	  	\fi
 	  \end{minipage}
-      
-      \fi
     \fi
 
     \vspace{\stretch{1}}
@@ -768,8 +767,7 @@
 	    {\ppgcc@titpag@fmtdate{\ppgcc@formatdate\par}}%
     }\par
   }
-  \if@selfdoc
-  \global\let\ppgcc@selfdoc@fg\ppgcc@selfdoc@drawtitlepage\fi
+  \if@selfdoc\global\let\ppgcc@selfdoc@fg\ppgcc@selfdoc@drawtitlepage\fi
   \end{singlespace}
   \end{ppgcctitlingpageodd}
 }
