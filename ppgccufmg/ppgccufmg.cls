@@ -662,7 +662,7 @@
   		
   		\textbf{Instituto de Ci\^{e}ncias Exatas}
   		
-  		\textbf{Programa de P\`{o}s-Gradua\c{c}\~{a}o em Ci\^{e}ncia da Computa\c{c}\~{a}o}
+  		\textbf{Programa de P\'{o}s-Gradua\c{c}\~{a}o em Ci\^{e}ncia da Computa\c{c}\~{a}o}
   		
   		\setbox0=\vbox{\ppgcc@maketitlepageoptionalpart}%
   		\edef\ppgcc@textvspace{%
@@ -754,7 +754,7 @@
 	  	\leftskip=5cm
 	  	{\ppgcc@titpag@fmtadvisor{\ppgcc@advisor: \ppgcc@advisorname}\par}%
 	  	\ifx\ppgcc@coadvisorname\empty\else
-	  	{\ppgcc@titpag@fmtcoadvisor{\ppgcc@coadvisor: \ppgcc@coadvisorname}\par}%
+		  {\ppgcc@titpag@fmtcoadvisor{\ppgcc@coadvisor: \ppgcc@coadvisorname}\par}%
 	  	\fi
 	  \end{minipage}
     \fi
