@@ -754,7 +754,7 @@
 	  	\leftskip=5cm
 	  	{\ppgcc@titpag@fmtadvisor{\ppgcc@advisor: \ppgcc@advisorname}\par}%
 	  	\ifx\ppgcc@coadvisorname\empty\else
-	  	{\ppgcc@titpag@fmtcoadvisor{\ppgcc@coadvisor: \ppgcc@coadvisorname}\par}%
+		  {\ppgcc@titpag@fmtcoadvisor{\ppgcc@coadvisor: \ppgcc@coadvisorname}\par}%
 	  	\fi
 	  \end{minipage}
     \fi
