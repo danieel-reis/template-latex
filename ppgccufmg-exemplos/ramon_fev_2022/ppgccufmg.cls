@@ -662,7 +662,7 @@
   		
   		\textbf{Instituto de Ci\^{e}ncias Exatas}
   		
-  		\textbf{Programa de P\`{o}s-Gradua\c{c}\~{a}o em Ci\^{e}ncia da Computa\c{c}\~{a}o}
+  		\textbf{Programa de P\'{o}s-Gradua\c{c}\~{a}o em Ci\^{e}ncia da Computa\c{c}\~{a}o}
   		
   		\setbox0=\vbox{\ppgcc@maketitlepageoptionalpart}%
   		\edef\ppgcc@textvspace{%
