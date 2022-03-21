@@ -500,7 +500,7 @@
   	\vspace{3cm}
   	
     \@documenttype{} apresentad\ppgcc@doctype@gender{} ao Programa de
-    P\'{o}s\discretionary{-}{-}{-}Gradua\c{c}\~{a}o em \@deflang@course{} da \@deflang@university{}, como requisito parcial à obten\c{c}\~{a}o do título de \@degree{} em \@deflang@course.}
+    P\'{o}s\discretionary{-}{-}{-}Gradua\c{c}\~{a}o em \@deflang@course{} da \@deflang@university{}, como requisito parcial à obten\c{c}\~{a}o do t\'{i}tulo de \@degree{} em \@deflang@course.}
   \def\ppgcc@acknowledgments{Agradecimentos}
   \def\ppgcc@keywordsname{Palavras-chave}
 
@@ -1314,7 +1314,7 @@
 \define@key{ppgcc}{ack}{\ppgcc@addack#1\relax}
 \define@key{ppgcc}{beforetoc}{\ppgcc@addbeforetoc{#1}}
 
-\fcpostkeywords{Título}
+\fcpostkeywords{T\'{i}tulo}
 
 \newcommand{\ppgccufmg}[1]{%
   \setkeys{ppgcc}{#1}
