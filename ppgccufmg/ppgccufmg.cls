@@ -41,31 +41,31 @@
 
 \def\ppgcc@classname{ppgccufmg}
 
-%% OpÁıes gerais:
+%% Op√ß√µes gerais:
 
 \newif\ifppgcc@phd                 % Tese de doutorado?
-\newif\ifppgcc@msc                 % DissertaÁ„o de mestrado?
-\newif\ifppgcc@proposal            % OpÁ„o de proposta/projeto?
+\newif\ifppgcc@msc                 % Disserta√ß√£o de mestrado?
+\newif\ifppgcc@proposal            % Op√ß√£o de proposta/projeto?
 \newif\ifppgcc@showcover           % Compor a falsa folha de rosto?
 \newif\ifppgcc@showtitle           % Compor a folha de rosto?
-\newif\ifppgcc@showfc              % Compor a Ficha Catalogr·fica?
-\newif\ifppgcc@showapproval        % Incluir a Folha de AprovaÁ„o?
-\newif\ifppgcc@showabstract        % Compor as p·ginas de resumo/abstract?
-\newif\ifppgcc@showdedication      % Compor a dedicatÛria?
+\newif\ifppgcc@showfc              % Compor a Ficha Catalogr√°fica?
+\newif\ifppgcc@showapproval        % Incluir a Folha de Aprova√ß√£o?
+\newif\ifppgcc@showabstract        % Compor as p√°ginas de resumo/abstract?
+\newif\ifppgcc@showdedication      % Compor a dedicat√≥ria?
 \newif\ifppgcc@showack             % Compor os agradecimentos?
-\newif\ifppgcc@showepigraph        % Compor a EpÌgrafe?
+\newif\ifppgcc@showepigraph        % Compor a Ep√≠grafe?
 \newif\ifppgcc@showlof             % Compor a Lista de Figuras?
 \newif\ifppgcc@showlot             % Compor a Lista de Tabelas?
-\newif\ifppgcc@showtoc             % Compor o Sum·rio?
-\newif\ifppgcc@extraporttitlepage  % Exibir tambÈm uma folha de tÌtulo
-                                   % em portuguÍs?
+\newif\ifppgcc@showtoc             % Compor o Sum√°rio?
+\newif\ifppgcc@extraporttitlepage  % Exibir tamb√©m uma folha de t√≠tulo
+                                   % em portugu√™s?
 \newif\ifppgcc@putmainmatter       % Chamar automaticamente \mainmatter depois
-                                   % das p·ginas introdutÛrias?
-\newif\ifppgcc@hasapprovalpages    % H· pelo menos uma Folha de AprovaÁ„o?
-\newif\ifppgcc@isadvisorfemale     % Usar gÍnero feminino para Orientador(a)?
-\newif\ifppgcc@isadvisormale       % Usar gÍnero masculino para Orientador(a)?
-\newif\ifppgcc@iscoadvisorfemale   % Usar gÍnero feminino para Coorientador(a)?
-\newif\ifppgcc@iscoadvisormale     % Usar gÍnero masculino para Coorientador(a)?
+                                   % das p√°ginas introdut√≥rias?
+\newif\ifppgcc@hasapprovalpages    % H√° pelo menos uma Folha de Aprova√ß√£o?
+\newif\ifppgcc@isadvisorfemale     % Usar g√™nero feminino para Orientador(a)?
+\newif\ifppgcc@isadvisormale       % Usar g√™nero masculino para Orientador(a)?
+\newif\ifppgcc@iscoadvisorfemale   % Usar g√™nero feminino para Coorientador(a)?
+\newif\ifppgcc@iscoadvisormale     % Usar g√™nero masculino para Coorientador(a)?
 
 \newif\if@selfdoc
 \ifx\ppgcc@selfdoc\undefined\else\@selfdoctrue\fi
@@ -104,10 +104,10 @@
 \ppgcc@putmainmattertrue
 \ppgcc@hasapprovalpagesfalse
 
-%% OpÁıes das referÍncias bibliogr·ficas:
+%% Op√ß√µes das refer√™ncias bibliogr√°ficas:
 
 \newif\if@bibnorepauthor  % Substituir autorias repetidas por linha comprida?
-\newif\if@nobreakitems    % Impedir quebra de p·gina no meio de um item?
+\newif\if@nobreakitems    % Impedir quebra de p√°gina no meio de um item?
 
 \@bibnorepauthorfalse
 \@nobreakitemsfalse
@@ -163,13 +163,13 @@
 }
 \newcommand*{\university}[1]{\gdef\ppgcc@university{#1}}   % Nome da universidade
 \newcommand*{\course}[1]{\gdef\@course{#1}}                % Nome do curso
-\newcommand*{\address}[1]{\gdef\@address{#1}}              % EndereÁo (cidade/UF)
+\newcommand*{\address}[1]{\gdef\@address{#1}}              % Endere√ßo (cidade/UF)
 \newcommand*{\fcuniversity}[1]                             % Nome da universidade
   {\gdef\ppgcc@fcuniversity{#1}}                           % para a F.C.
-\newcommand*{\cutter}[1]{\gdef\ppgcc@cutter{#1}}           % CÛdigo "cutter"
-\newcommand*{\cdu}[1]{\gdef\ppgcc@cdu{#1}}                 % CÛdigo CDU
-\newcommand*{\authorfc}[1]{\gdef\ppgcc@authorfc{#1}}                 % Autor(a) da ficha catalogr·fica
-\newcommand*{\indexkeys}[1]{\gdef\ppgcc@indexkeys{#1}}     % Chaves para indexaÁ„o
+\newcommand*{\cutter}[1]{\gdef\ppgcc@cutter{#1}}           % C√≥digo "cutter"
+\newcommand*{\cdu}[1]{\gdef\ppgcc@cdu{#1}}                 % C√≥digo CDU
+\newcommand*{\authorfc}[1]{\gdef\ppgcc@authorfc{#1}}                 % Autor(a) da ficha catalogr√°fica
+\newcommand*{\indexkeys}[1]{\gdef\ppgcc@indexkeys{#1}}     % Chaves para indexa√ß√£o
 
 \indexkeys{\ppgccexpandlistoffckeywords{} \ppgccexpandlistoffcpostkeywords}
 
@@ -181,11 +181,11 @@
 \renewcommand{\date}[1]{%                                  % Data (aaaa-mm ou aaaa-mm-dd)
   \ppgcc@origdatecmd{#1}\ppgcc@parsedate#1---\relax}
 
-\newcommand*{\coursedegree}[1]{\gdef\@degree{#1}}          % TitulaÁ„o
-\renewcommand*{\title}[1]                                  % TÌtulo
+\newcommand*{\coursedegree}[1]{\gdef\@degree{#1}}          % Titula√ß√£o
+\renewcommand*{\title}[1]                                  % T√≠tulo
   {\gdef\@title{#1}}
 
-\newcommand*{\portuguesetitle}[1]                          % TÌtulo em portuguÍs
+\newcommand*{\portuguesetitle}[1]                          % T√≠tulo em portugu√™s
   {\gdef\@portuguesetitle{#1}}
 \newcommand*{\portugueseuniversity}[1]                     % Nome da univers. em pt.
   {\gdef\@portugueseuniversity{#1}}
@@ -235,7 +235,7 @@
   \global\ppgcc@hasapprovalpagestrue
   }
 \newcommand{\ppgcc@doapprovallist}[1]{%
-  % Para cada folha de aprovaÁ„o, define localmente as vari·veis
+  % Para cada folha de aprova√ß√£o, define localmente as vari√°veis
   % \ppgcc@approvalvertadjust, \ppgcc@approvalwidth e \ppgcc@approval e em
   % seguida chama o comando #1.
   \begingroup
@@ -333,7 +333,7 @@
 
 \def\ppgcc@setdoctype{%
   \ifppgcc@phd
-    % Esta È uma tese de doutorado
+    % Esta √© uma tese de doutorado
     \coursedegree{\ppgcc@phd}
     \ifppgcc@proposal
       \gdef\@documenttype{\ppgcc@phddocproj}%
@@ -343,7 +343,7 @@
       \ppgcc@set@phddoc
     \fi
   \else
-    % Esta È uma dissertaÁ„o de mestrado
+    % Esta √© uma disserta√ß√£o de mestrado
     \coursedegree{\ppgcc@msc}
     \ifppgcc@proposal
       \gdef\@documenttype{\ppgcc@mscdocprop}%
@@ -482,7 +482,7 @@
   \def\@deflang@course{%
     \@ifundefined{@portuguesecourse}{\@course}{\@portuguesecourse}}
 
-  \def\ppgcc@version{Vers„o final}
+  \def\ppgcc@version{Vers\~{a}o final}
   \def\ppgcc@msc{Mestre}
   \def\ppgcc@phd{Doutor}
   \def\ppgcc@mscdoc{Disserta\c{c}\~{a}o}
@@ -500,7 +500,7 @@
   	\vspace{3cm}
   	
     \@documenttype{} apresentad\ppgcc@doctype@gender{} ao Programa de
-    P\'{o}s\discretionary{-}{-}{-}Gradua\c{c}\~{a}o em \@deflang@course{} da \@deflang@university{}, como requisito parcial ‡ obten\c{c}\~{a}o do tÌtulo de \@degree{} em \@deflang@course.}
+    P\'{o}s\discretionary{-}{-}{-}Gradua\c{c}\~{a}o em \@deflang@course{} da \@deflang@university{}, como requisito parcial √† obten\c{c}\~{a}o do t√≠tulo de \@degree{} em \@deflang@course.}
   \def\ppgcc@acknowledgments{Agradecimentos}
   \def\ppgcc@keywordsname{Palavras-chave}
 
@@ -820,7 +820,7 @@
   \clearpage
   \setcounter{ppgcc@fc@frontpages}{\c@page}%
 
-  % N„o entendi o motivo de subtrair 1 do contador page. Comando comentado pois o n˙mero da p·gina da IntroduÁ„o estava errado (-1 do que deveria ser).
+  % N√£o entendi o motivo de subtrair 1 do contador page. Comando comentado pois o n√∫mero da p√°gina da Introdu√ß√£o estava errado (-1 do que deveria ser).
   %\addtocounter{ppgcc@fc@frontpages}{-1}%
   \immediate\write\@auxout{%
     \string\setcounter{ppgcc@fc@frontpages}{\the\c@ppgcc@fc@frontpages}^^J
@@ -852,9 +852,9 @@
 \def\ppgcc@fc@check{%
   \ppgcc@fc@checkparamerr{ppgcc@authorrev}{o nome reverso do autor}{authorrev}
     {\authorrev}
-  \ppgcc@fc@checkparamwarn{ppgcc@cutter}{o cÛdigo ``cutter''}{cutter}{\cutter}
-  \ppgcc@fc@checkparamwarn{ppgcc@cdu}{o cÛdigo CDU}{cdu}{\cdu}
-  \ppgcc@fc@checkparamwarn{ppgcc@authorfc}{Texto de autoria da ficha catalogr·fica}{authorfc}{\authorfc}
+  \ppgcc@fc@checkparamwarn{ppgcc@cutter}{o c√≥digo ``cutter''}{cutter}{\cutter}
+  \ppgcc@fc@checkparamwarn{ppgcc@cdu}{o c√≥digo CDU}{cdu}{\cdu}
+  \ppgcc@fc@checkparamwarn{ppgcc@authorfc}{Texto de autoria da ficha catalogr√°fica}{authorfc}{\authorfc}
 }
 
 \def\ppgcc@titlenobreak{%
@@ -939,10 +939,10 @@
         \else
           Disserta\c{c}\~{a}o (mestrado)
         \fi
-        --- \ppgcc@fcuniversity, Instituto de CiÍncias Exatas, Departamento de CiÍncia da ComputaÁ„o
+        --- \ppgcc@fcuniversity, Instituto de Ci√™ncias Exatas, Departamento de Ci√™ncia da Computa√ß√£o
         \\[\ppgcc@fc@smallsep]
       & \hspace*{\ppgcc@fc@parindent}%
-        ReferÍncias: f. \thebibliographypagesbeg-\thebibliographypagesend.;
+        Refer√™ncias: f. \thebibliographypagesbeg-\thebibliographypagesend.;
         \\[\ppgcc@fc@bigsep]
       & \hspace*{\ppgcc@fc@parindent}%
         \ppgcc@indexkeys
@@ -1022,7 +1022,7 @@
         Se a imagem da folha de aprova\c{c}\~ao precisar ser ajustada, use:\par
         \texttt{approval=[}\emph{ajuste}\texttt{][}\emph{escala}\texttt{]\{}%
         \emph{nome do arquivo}\texttt{\}}\par
-        onde \emph{ajuste} È uma dist\^ancia para deslocar a imagem para baixo\par
+        onde \emph{ajuste} √© uma dist\^ancia para deslocar a imagem para baixo\par
         e \emph{escala} \'e um fator de escala para a imagem. Por exemplo:\par
         \texttt{approval=[-2cm][0.9]\{}\emph{nome do arquivo}\texttt{\}}\par
         desloca a imagem 2cm para cima e a escala em 90\%.\par
@@ -1194,7 +1194,7 @@
   \makeoddhead{bibliography}{\textsc{\bibname}}{}{\thepage}
   \makeevenhead{bibliography}{\thepage}{}{\textsc{\bibname}}
   
-  % para que a primeira p·gina de cada capÌtulo tenha paginaÁ„o no alto ‡ direita
+  % para que a primeira p√°gina de cada cap√≠tulo tenha pagina√ß√£o no alto √† direita
   \copypagestyle{chapter}{plain}
   \makeoddhead{chapter}{}{}{}
   \makeoddfoot{chapter}{}{}{}
@@ -1211,7 +1211,7 @@
   \copypagestyle{bibliography}{headings}
   \makeoddhead{bibliography}{\textsc{\bibname}}{}{\thepage}
   
-  % para que a primeira p·gina de cada capÌtulo tenha paginaÁ„o no alto ‡ direita
+  % para que a primeira p√°gina de cada cap√≠tulo tenha pagina√ß√£o no alto √† direita
   \copypagestyle{chapter}{plain}
   \makeoddhead{chapter}{}{}{}
   \makeoddfoot{chapter}{}{}{}
@@ -1314,56 +1314,56 @@
 \define@key{ppgcc}{ack}{\ppgcc@addack#1\relax}
 \define@key{ppgcc}{beforetoc}{\ppgcc@addbeforetoc{#1}}
 
-\fcpostkeywords{TÌtulo}
+\fcpostkeywords{T√≠tulo}
 
 \newcommand{\ppgccufmg}[1]{%
   \setkeys{ppgcc}{#1}
   
   \pagestyle{plain}
   
-  % Alterado para contar as p·ginas de forma continua em todo o documento e, para que os numeros de p·gina apareÁam sempre como ar·bicos.
+  % Alterado para contar as p√°ginas de forma continua em todo o documento e, para que os numeros de p√°gina apare√ßam sempre como ar√°bicos.
   \frontmatter*
   
   % Falsa folha de rosto
   \makecoverpage
-  % As duas linhas foram acrescentadas para que a capa n„o conte na numeraÁ„o das p·ginas
+  % As duas linhas foram acrescentadas para que a capa n√£o conte na numera√ß√£o das p√°ginas
   \cleardoublepage
   \setcounter{page}{1}
   
   % Folha(s) de rosto
   \maketitlepage
-  % Ficha Catalogr·fica
+  % Ficha Catalogr√°fica
   \makefc
-  % Folha de aprovaÁ„o
+  % Folha de aprova√ß√£o
   \makeapproval
-  % DedicatÛria
+  % Dedicat√≥ria
   \ppgcc@includededicationlist
   % Agradecimentos
   \ppgcc@includeacklist
-  % EpÌgrafe
+  % Ep√≠grafe
   \makeepigraph
   % Resumo, Abstract, etc.
   \ppgcc@includeabstractlist
   
-  % Sum·rio e lista de figuras e de tabelas
+  % Sum√°rio e lista de figuras e de tabelas
   \listoffigures
   \listoftables
   \ppgcc@beforetoc
   \tableofcontents
   
-  % ***** ATEN«√O *****
+  % ***** ATEN√á√ÉO *****
   %
   % Se precisar incluir outras listas, como a Lista de Algoritmos ou de
-  % SÌmbolos, N√O ALTERE ESTE ARQUIVO PARA COLOCAR O COMANDO AQUI, sen„o o
-  % documento ser· gerado com problemas! Veja o exemplo da seÁ„o "Para os
+  % S√≠mbolos, N√ÉO ALTERE ESTE ARQUIVO PARA COLOCAR O COMANDO AQUI, sen√£o o
+  % documento ser√° gerado com problemas! Veja o exemplo da se√ß√£o "Para os
   % impacientes", que descreve esse caso.
   
   \ifppgcc@putmainmatter\mainmatter\fi
   
-  % Atribui o valor do contador ppgcc@fc@frontpages para o contador de p·ginas (page). Dentro de \mainmatter parece que o valor atual de page È copiado para o novo contador ppgcc@fc@frontpages, e ent„o page È zerado.s
+  % Atribui o valor do contador ppgcc@fc@frontpages para o contador de p√°ginas (page). Dentro de \mainmatter parece que o valor atual de page √© copiado para o novo contador ppgcc@fc@frontpages, e ent√£o page √© zerado.s
   \setcounter{page}{\theppgcc@fc@frontpages}
   
-  % Colocar a enumeraÁ„o de p·gina no canto superior direito nas p·ginas que contÈm o tÌtulo de um capÌtulo.
+  % Colocar a enumera√ß√£o de p√°gina no canto superior direito nas p√°ginas que cont√©m o t√≠tulo de um cap√≠tulo.
   \makeoddhead{chapter}{}{}{\thepage}
 }
 
