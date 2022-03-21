@@ -500,7 +500,7 @@
   	\vspace{3cm}
   	
     \@documenttype{} apresentad\ppgcc@doctype@gender{} ao Programa de
-    P\'{o}s\discretionary{-}{-}{-}Gradua\c{c}\~{a}o em \@deflang@course{} da \@deflang@university{}, como requisito parcial à obten\c{c}\~{a}o do t\'{i}tulo de \@degree{} em \@deflang@course.}
+    P\'{o}s\discretionary{-}{-}{-}Gradua\c{c}\~{a}o em \@deflang@course{} da \@deflang@university{}, como requisito parcial \`{a} obten\c{c}\~{a}o do t\'{i}tulo de \@degree{} em \@deflang@course.}
   \def\ppgcc@acknowledgments{Agradecimentos}
   \def\ppgcc@keywordsname{Palavras-chave}
 
